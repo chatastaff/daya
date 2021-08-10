@@ -6,7 +6,7 @@ const CONFIG = JSON.parse(fs.readFileSync("./config.json", { encoding: "utf-8" }
 const moment = require("moment");
 require("moment-duration-format");
 
-const Voice = new Client({ fetchAllMembers: true, disableMentions: "none" });
+const Voice = new Client({ fetchAllMembers: true, disableMentions: "none", ws: { intents: ["GUILDS", "GUILD_VOICE_STATES", "GUILD_MESSAGES"] }});
 Voice.staffJoined = false;
 Voice.playingVoice = false;
 Voice.voiceConnection = null;
